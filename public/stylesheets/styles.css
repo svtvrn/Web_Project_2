@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Rubik:wght@300;400&display=swap');
+
+:root {
+  --clr--header: #39cc6e;
+  --clr--background: #f9f9f9;
+  --clr--footer: #373737;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: 1px solid purple;
+}
+
+body {
+  background-color: var(--clr--background);
+  font-family: 'Rubik', sans-serif;
+  font-weight: 300;
+}
+
+.bookworm-header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--clr--header);
+  height: 6rem;
+}
+
+#fav-list-link {
+  color: var(--clr--background);
+  text-decoration: none;
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.bookworm-main {
+  width: 40vw;
+  margin: 0 auto;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-container > p {
+  color: black;
+  font-size: 2rem;
+  margin: 8rem auto 4rem;
+  font-weight: 600;
+}
+
+.search-bar {
+  margin: 0 auto 25rem;
+}
+
+.bookworm-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--clr--footer);
+  height: 9rem;
+}
+
+.bookworm-footer > p {
+  color: var(--clr--background);
+  font-size: 1.6rem;
+}
