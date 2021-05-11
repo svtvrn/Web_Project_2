@@ -34,17 +34,18 @@ body {
   font-weight: 400;
 }
 
+#fav-list-link:hover {
+  color: rgb(191, 209, 243);
+  filter: drop-shadow(0.2);
+}
+
 .bookworm-main {
-  width: 40vw;
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
 }
 
-.search-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.search-container > p {
+.bookworm-main > p {
   color: black;
   font-size: 2rem;
   margin: 8rem auto 4rem;
@@ -52,7 +53,7 @@ body {
 }
 
 .search-bar {
-  margin: 0 auto 25rem;
+  margin: 0 auto 8rem;
 }
 
 .bookworm-footer {
