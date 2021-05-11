@@ -4,6 +4,7 @@
   --clr--header: #39cc6e;
   --clr--background: #f9f9f9;
   --clr--footer: #373737;
+  --clr--text: #fff;
 }
 
 * {
@@ -28,7 +29,7 @@ body {
 }
 
 #fav-list-link {
-  color: var(--clr--background);
+  color: var(--clr--text);
   text-decoration: none;
   font-size: 1.6rem;
   font-weight: 400;
@@ -53,7 +54,32 @@ body {
 }
 
 .search-bar {
+  display: flex;
   margin: 0 auto 8rem;
+  width: 45%;
+  height: 3rem;
+}
+
+.search-bar > input {
+  width: 80%;
+  height: 3rem;
+  font-size: 1.1rem;
+  padding: 1rem 0 1rem 1rem;
+  border-radius: 1vh 0 0 1vh;
+  border: none;
+  box-shadow: 10px 10px 10px 0 rgba(0, 0, 0, 0.411);
+}
+
+.search-bar > button {
+  width: 10rem;
+  height: 3rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  background-color: var(--clr--header);
+  color: var(--clr--text);
+  border-radius: 0 1vh 1vh 0;
+  border: none;
+  box-shadow: 10px 10px 10px 0 rgba(0, 0, 0, 0.411);
 }
 
 .bookworm-footer {
