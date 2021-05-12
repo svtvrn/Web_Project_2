@@ -7,7 +7,12 @@ searchBtn.addEventListener('click', fetchBooks);
 
 function fetchBooks(){
     if(searchInput.value){
-        fetch(url+searchInput.value)
+        fetch(url+searchInput.value,{
+            method: 'GET',
+            headers :{
+                'Accept': 'application/json'
+            }
+        })
         .then(res => res.text())
         .then(data => console.log(data));
     }
