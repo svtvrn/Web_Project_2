@@ -11,7 +11,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  outline: 1px solid purple;
 }
 
 body {
@@ -36,8 +35,9 @@ body {
 }
 
 #fav-list-link:hover {
-  color: rgb(191, 209, 243);
-  filter: drop-shadow(0.2);
+  transform: scale(1.1);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.411);
+  transition: all 0.1s ease 0.1s;
 }
 
 .bookworm-main {
@@ -47,7 +47,7 @@ body {
 }
 
 .bookworm-main > p {
-  color: black;
+  color: rgb(37, 37, 37);
   font-size: 2rem;
   margin: 8rem auto 4rem;
   font-weight: 600;
@@ -55,12 +55,12 @@ body {
 
 .search-bar {
   display: flex;
-  margin: 0 auto 8rem;
+  margin: 0 auto 27rem;
   width: 45%;
   height: 3rem;
 }
 
-.search-bar > input {
+.search-bar > input[type='text'] {
   width: 80%;
   height: 3rem;
   font-size: 1.1rem;
@@ -74,8 +74,8 @@ body {
   outline: none;
 }
 
-.search-bar > button {
-  width: 10rem;
+.search-bar > input[type='submit'] {
+  width: 11rem;
   height: 3rem;
   font-size: 1.3rem;
   font-weight: 700;
@@ -84,6 +84,11 @@ body {
   border-radius: 0 1vh 1vh 0;
   border: none;
   box-shadow: 10px 10px 10px 0 rgba(0, 0, 0, 0.411);
+}
+
+.search-bar > input[type='submit']:hover {
+  cursor: pointer;
+  filter: brightness(1.06);
 }
 
 .bookworm-footer {
