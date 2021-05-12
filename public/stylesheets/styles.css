@@ -55,7 +55,7 @@ body {
 
 .search-bar {
   display: flex;
-  margin: 0 auto 27rem;
+  margin: 0 auto;
   width: 45%;
   height: 3rem;
 }
@@ -89,6 +89,27 @@ body {
 .search-bar > input[type='submit']:hover {
   cursor: pointer;
   filter: brightness(1.06);
+}
+
+.search-results {
+  margin: 6rem auto 20.2rem;
+  list-style: none;
+  font-size: 1.5rem;
+  font-weight: 400;
+  width: 30%;
+}
+
+.fav-btngroup {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 3rem 0 1rem;
+}
+
+.fav-btngroup > input {
+  width: 7rem;
+  height: 2.5rem;
+  font-size: 1.4rem;
+  border-radius: 5rem;
 }
 
 .bookworm-footer {
