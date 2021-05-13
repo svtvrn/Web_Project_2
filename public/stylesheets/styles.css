@@ -86,7 +86,7 @@ body {
   box-shadow: 10px 10px 10px 0 rgba(0, 0, 0, 0.411);
 }
 
-.search-bar > input[type='submit']:hover {
+input[type='submit']:hover {
   cursor: pointer;
   filter: brightness(1.06);
 }
@@ -99,17 +99,38 @@ body {
   width: 30%;
 }
 
+.search-results > li {
+  padding: 1rem 0;
+  border-top: 0.1rem solid var(--clr--footer);
+  border-bottom: 0.1rem solid var(--clr--footer);
+}
+
+.search-results p {
+  margin-bottom: 0.5rem;
+}
+
 .fav-btngroup {
   display: flex;
   justify-content: space-evenly;
-  margin: 3rem 0 1rem;
+  margin: 2rem 0 0;
 }
 
 .fav-btngroup > input {
   width: 7rem;
   height: 2.5rem;
   font-size: 1.4rem;
-  border-radius: 5rem;
+  border: none;
+  border-radius: 0.5rem;
+  color: var(--clr--text);
+  font-weight: 700;
+}
+
+#add-fave {
+  background-color: var(--clr--header);
+}
+
+#remove-fave {
+  background-color: var(--clr--footer);
 }
 
 .bookworm-footer {
@@ -123,4 +144,14 @@ body {
 .bookworm-footer > p {
   color: var(--clr--background);
   font-size: 1.6rem;
+}
+
+@media only screen and (max-width: 550px) {
+  .search-bar {
+    width: 90%;
+  }
+
+  .search-results {
+    width: 90%;
+  }
 }
