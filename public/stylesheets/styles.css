@@ -154,4 +154,9 @@ input[type='submit']:hover {
   .search-results {
     width: 90%;
   }
+
+  .search-bar > input[type='text'] {
+    width: 85%;
+    padding: 1rem 0 1rem 1rem;
+  }
 }
