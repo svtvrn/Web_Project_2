@@ -1,9 +1,10 @@
 var searchBtn = document.querySelector(".search-bar input[type='submit']");
 var searchInput = document.querySelector(".search-bar input[type='text']");
 
-let worksUrl = 'https://reststop.randomhouse.com/resources/works/';
+let worksIdUrl = 'https://reststop.randomhouse.com/resources/works/';
+let worksUrl = 'https://reststop.randomhouse.com/resources/works?search=';
 
-const searchResults = document.querySelector('.search-results');
+const searchResultsDOM = document.querySelector('.search-results');
 
 var bookData= [];
 
@@ -17,13 +18,14 @@ function fetchBooks(){
                 'Accept': 'application/json'
             }
         })
-        .then(res => res.ok ? res.json() : console.log("request failed"))
+        .then(res => res.ok ? res.json() : console.log("Request Failed"))
         .then(data => {
-            searchResults.innerHTML = null;
+            searchResultsDOM.innerHTML = null;
             if(!data){
-                searchResults.innerHTML = `Couldn't find the book with id: ${searchInput.value}.`;
+                searchResultsDOM.innerHTML = `Couldn't find the book with id: ${searchInput.value}.`;
             }else{
-                searchResults.innerHTML += resultTemplate(data);
+                console.log(data.work);
+                data.work.forEach( element =>  searchResultsDOM.innerHTML += resultTemplate(element));
             }
         })
         .catch(error => console.log(error));

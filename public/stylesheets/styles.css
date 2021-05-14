@@ -56,7 +56,7 @@ body {
 .search-bar {
   display: flex;
   margin: 0 auto;
-  width: 45%;
+  width: 50em;
   height: 3rem;
 }
 
@@ -96,7 +96,7 @@ input[type='submit']:hover {
   list-style: none;
   font-size: 1.5rem;
   font-weight: 400;
-  width: 30%;
+  width: 35rem;
 }
 
 .search-results > li {
@@ -153,6 +153,21 @@ input[type='submit']:hover {
 
   .search-results {
     width: 90%;
+  }
+
+  .search-bar > input[type='text'] {
+    width: 85%;
+    padding: 1rem 0 1rem 1rem;
+  }
+}
+
+@media only screen and (max-width: 992px) and (min-width: 551px) {
+  .search-bar {
+    width: 80%;
+  }
+
+  .search-results {
+    width: 70%;
   }
 
   .search-bar > input[type='text'] {
