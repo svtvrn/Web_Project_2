@@ -25,7 +25,11 @@ function fetchBooks(){
                 searchResultsDOM.innerHTML = `Couldn't find any results for: ${searchInput.value}.`;
             }else{
                 console.log(data);
-                for (let element of data.work) searchResultsDOM.innerHTML += resultTemplate(element);
+                if(data.work.length){
+                    for (let element of data.work) searchResultsDOM.innerHTML += resultTemplate(element);
+                }else{
+                    searchResultsDOM.innerHTML += resultTemplate(data.work);
+                }
             }
         })
         .catch(error => console.log(error));
