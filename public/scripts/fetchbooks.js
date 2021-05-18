@@ -43,7 +43,7 @@ function resultTemplate(data){
             <p>Author: ${data.authorweb}</p>
             <p>ID: ${data.workid}</p>
             <span class="fav-btngroup">
-                <input id="add-fave" type="submit" value="add" onclick="addBook('${data.workid}')"></input>
+                <input id="add-fave" type="submit" value="fave" onclick="addBook('${data.workid}')"></input>
                 <input id="remove-fave" type="submit" value="remove" onclick="removeBook('${data.workid}')"></input>
             </span>
         </li>`
@@ -51,6 +51,8 @@ function resultTemplate(data){
 }
 
 function addBook(wid){
+    document.querySelector('#add-fave').style.display = 'none';
+    document.querySelector('#remove-fave').style.display = 'initial';
     fetch('http://localhost:3000/',{
         method: 'POST',
         headers:{
@@ -63,6 +65,8 @@ function addBook(wid){
 }
 
 function removeBook(wid){
+    document.querySelector('#remove-fave').style.display = 'none';
+    document.querySelector('#add-fave').style.display = 'initial';
     fetch('http://localhost:3000/',{
         method: 'POST',
         headers:{

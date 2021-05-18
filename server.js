@@ -31,7 +31,7 @@ const BookSchema = new Schema({
   workid: {type: Number, unique: true}
 });
 
-//Model
+//Creating our DB model.
 const Book = mongoose.model('Penguin Random House', BookSchema);
 
 
@@ -61,7 +61,7 @@ app.post('/', function(req, res){
       err ? console.log("Failed to save book.") : console.log("Book saved successfully.");
     });
   }else if(action === 'remove'){
-    Book.find.deleteOne({workid: parseInt(data.workid)}, err =>{
+    Book.deleteOne({workid: parseInt(data.workid)}, err =>{
       err ? console.log("Failed to delete book.") : console.log("Book deleted successfully.");
     });
   }
