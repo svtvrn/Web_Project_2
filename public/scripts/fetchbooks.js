@@ -53,6 +53,15 @@ function resultTemplate(data){
 
 function addBook(wid){
     console.log(bookData.get(wid));
+    fetch('http://localhost:3000/',{
+        method: 'POST',
+        headers:{
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            msg:{ action: 'add', data: bookData.get(wid)}
+        })
+    });
 }
 
 function removeBook(wid){
