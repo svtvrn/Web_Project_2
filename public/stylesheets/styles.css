@@ -132,7 +132,6 @@ input[type='submit']:hover {
 
 #remove-fave {
   background-color: var(--clr--footer);
-  display: none;
 }
 
 .bookworm-footer {

@@ -49,22 +49,24 @@ app.use(express.json());
 //Homepage, gets the handlebars view.
 app.get('/', (req, res) => res.render('index'));
 
-app.post('/', function(req, res){
+app.post('/', async function(req, res){
   //We delete unwanted fields
-  let data = req.body.msg.data;
-  let action = req.body.msg.action;
+  var data = req.body.msg.data;
+  var action = req.body.msg.action;
   delete data.titles;
+  var answer = null;
   //Checking which action was triggered.
   if(action === 'add'){
-    let newBook = new Book(data);
-    newBook.save( err => {
+    var newBook = new Book(data);
+    answer = await newBook.save( err => {
       err ? console.log("Failed to save book.") : console.log("Book saved successfully.");
     });
   }else if(action === 'remove'){
-    Book.deleteOne({workid: parseInt(data.workid)}, err =>{
+    answer = await Book.deleteOne({workid: parseInt(data.workid)}, function(err, res) {
       err ? console.log("Failed to delete book.") : console.log("Book deleted successfully.");
     });
   }
+  res.send(answer);
 });
 
 

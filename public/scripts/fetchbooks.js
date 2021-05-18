@@ -43,36 +43,39 @@ function resultTemplate(data){
             <p>Author: ${data.authorweb}</p>
             <p>ID: ${data.workid}</p>
             <span class="fav-btngroup">
-                <input id="add-fave" type="submit" value="fave" onclick="addBook('${data.workid}')"></input>
-                <input id="remove-fave" type="submit" value="remove" onclick="removeBook('${data.workid}')"></input>
+                <input id="add-fave" class="manage-book" type="submit" value="fave" onclick="manageBook('${data.workid}')"></input>
             </span>
         </li>`
     );
 }
 
-function addBook(wid){
-    document.querySelector(`#wid-${wid} #add-fave`).style.display = 'none';
-    document.querySelector(`#wid-${wid} #remove-fave`).style.display = 'initial';
-    fetch('http://localhost:3000/',{
-        method: 'POST',
-        headers:{
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            msg:{ action: 'add', data: bookData.get(wid)}
-        })
-    });
-}
+function manageBook(wid){
 
-function removeBook(wid){
-    document.querySelector(`#wid-${wid} #remove-fave`).style.display = 'none';
-    document.querySelector(`#wid-${wid} #add-fave`).style.display = 'initial';
-    fetch('http://localhost:3000/',{
-        method: 'POST',
-        headers:{
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            msg:{ action: 'remove', data: bookData.get(wid)}
-        })
-    });}
+    let manageBtn = document.querySelector(`#wid-${wid} .manage-book`);
+
+    if (manageBtn.value === 'fave'){
+        manageBtn.setAttribute('value','remove');
+        manageBtn.id = 'remove-fave';
+        fetch('http://localhost:3000/',{
+            method: 'POST',
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                msg:{ action: 'add', data: bookData.get(wid)}
+            })
+        });
+    }else if (manageBtn.value === 'remove'){
+        manageBtn.setAttribute('value','fave');
+        manageBtn.id = 'add-fave';
+        fetch('http://localhost:3000/',{
+            method: 'POST',
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                msg:{ action: 'remove', data: bookData.get(wid)}
+            })
+        });
+    }
+}
