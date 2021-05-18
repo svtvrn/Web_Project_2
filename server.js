@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 const app = express();
 
 //Mongo Database URI.
-const MONGO_URI = "mongodb+srv://Nikos:auebwebproject2021@aueb.iu3fe.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const MONGO_URI = "mongodb+srv://Nikos:auebwebproject2021@aueb.iu3fe.mongodb.net/Aueb-Projects?retryWrites=true&w=majority";
 //Initiating mongoose connection.
 mongoose.connect(MONGO_URI, {
  useNewUrlParser: true,
@@ -28,11 +28,11 @@ const BookSchema = new Schema({
   titleSubtitleAuth: String,
   titleshort: String,
   titleweb: String,
-  workid: Number
+  workid: {type: Number, unique: true}
 });
 
 //Model
-const Book = mongoose.model('book', BookSchema);
+const Book = mongoose.model('Penguin Random House', BookSchema);
 
 
 //Connecting the Handlebars template engine.
@@ -50,7 +50,21 @@ app.use(express.json());
 app.get('/', (req, res) => res.render('index'));
 
 app.post('/', function(req, res){
-  console.log(req.body.msg.action);
+  //We delete unwanted fields
+  let data = req.body.msg.data;
+  let action = req.body.msg.action;
+  delete data.titles;
+  //Checking which action was triggered.
+  if(action === 'add'){
+    let newBook = new Book(data);
+    newBook.save( err => {
+      err ? console.log("Failed to save book.") : console.log("Book saved successfully.");
+    });
+  }else if(action === 'remove'){
+    Book.find.deleteOne({workid: parseInt(data.workid)}, err =>{
+      err ? console.log("Failed to delete book.") : console.log("Book deleted successfully.");
+    });
+  }
 });
 
 
