@@ -51,8 +51,8 @@ function resultTemplate(data){
 }
 
 function addBook(wid){
-    document.querySelector('#add-fave').style.display = 'none';
-    document.querySelector('#remove-fave').style.display = 'initial';
+    document.querySelector(`#wid-${wid} #add-fave`).style.display = 'none';
+    document.querySelector(`#wid-${wid} #remove-fave`).style.display = 'initial';
     fetch('http://localhost:3000/',{
         method: 'POST',
         headers:{
@@ -65,8 +65,8 @@ function addBook(wid){
 }
 
 function removeBook(wid){
-    document.querySelector('#remove-fave').style.display = 'none';
-    document.querySelector('#add-fave').style.display = 'initial';
+    document.querySelector(`#wid-${wid} #remove-fave`).style.display = 'none';
+    document.querySelector(`#wid-${wid} #add-fave`).style.display = 'initial';
     fetch('http://localhost:3000/',{
         method: 'POST',
         headers:{
