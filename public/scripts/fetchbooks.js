@@ -24,7 +24,6 @@ function fetchBooks(){
             if(!data || typeof data.work === 'undefined'){
                 searchResultsDOM.innerHTML = `Couldn't find any results for: ${searchInput.value}.`;
             }else{
-                console.log(data);
                 if(data.work.length){
                     for (let element of data.work) searchResultsDOM.innerHTML += resultTemplate(element);
                 }else{
@@ -52,7 +51,6 @@ function resultTemplate(data){
 }
 
 function addBook(wid){
-    console.log(bookData.get(wid));
     fetch('http://localhost:3000/',{
         method: 'POST',
         headers:{
@@ -65,5 +63,12 @@ function addBook(wid){
 }
 
 function removeBook(wid){
-    console.log(bookData.get(wid));
-}
+    fetch('http://localhost:3000/',{
+        method: 'POST',
+        headers:{
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            msg:{ action: 'remove', data: bookData.get(wid)}
+        })
+    });}
