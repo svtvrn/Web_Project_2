@@ -133,6 +133,10 @@ input[type='submit']:hover {
   background-color: var(--clr--footer);
 }
 
+#response-msg {
+  margin: 1rem auto;
+}
+
 .bookworm-footer {
   display: flex;
   align-items: center;

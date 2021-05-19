@@ -45,6 +45,7 @@ function resultTemplate(data){
             <span class="fav-btngroup">
                 <input id="add-fave" class="manage-book" type="submit" value="fave" onclick="manageBook('${data.workid}')"></input>
             </span>
+            <p id="response-msg"></>
         </li>`
     );
 }
@@ -64,11 +65,17 @@ function manageBook(wid){
             body: JSON.stringify({
                 msg:{ action: 'add', data: bookData.get(wid)}
             })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.msg === "F0"){
+                document.querySelector(`#wid-${wid} #response-msg`).innerHTML = "You've already saved this book! You can remove it if you wish to.";
+            }
         });
     }else if (manageBtn.value === 'remove'){
         manageBtn.setAttribute('value','fave');
         manageBtn.id = 'add-fave';
-        fetch('http://localhost:3000/',{
+        fetch('http://localhost:3000/', {
             method: 'POST',
             headers:{
                 'Content-Type': 'application/json'
@@ -76,6 +83,12 @@ function manageBook(wid){
             body: JSON.stringify({
                 msg:{ action: 'remove', data: bookData.get(wid)}
             })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.msg === "F1"){
+                document.querySelector(`#wid-${wid} #response-msg`).innerHTML = "We couldn't remove this book..";
+            }
         });
     }
 }

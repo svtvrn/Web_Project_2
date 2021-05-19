@@ -1,7 +1,7 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const path = require('path');
-const MongoClient = require('mongodb').MongoClient;
+//const MongoClient = require('mongodb').MongoClient;
 const mongoose = require('mongoose');
 
 
@@ -50,23 +50,22 @@ app.use(express.json());
 app.get('/', (req, res) => res.render('index'));
 
 app.post('/', async function(req, res){
-  //We delete unwanted fields
+  //Deconstructing the request into the action and data.
   var data = req.body.msg.data;
   var action = req.body.msg.action;
+  //We delete any unwanted fields.
   delete data.titles;
-  var answer = null;
   //Checking which action was triggered.
   if(action === 'add'){
     var newBook = new Book(data);
-    answer = await newBook.save( err => {
-      err ? console.log("Failed to save book.") : console.log("Book saved successfully.");
+    await newBook.save( err => {
+      err ? res.send({msg: 'F0'}) : res.send({msg: 'S1'})
     });
   }else if(action === 'remove'){
-    answer = await Book.deleteOne({workid: parseInt(data.workid)}, function(err, res) {
-      err ? console.log("Failed to delete book.") : console.log("Book deleted successfully.");
+    await Book.deleteOne({workid: parseInt(data.workid)}, err => {
+      err ? res.send({msg: 'F1'}) : res.send({msg: 'S1'}) 
     });
   }
-  res.send(answer);
 });
 
 
