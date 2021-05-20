@@ -5,7 +5,7 @@ const Book = require('./mongoose/bookschema');
 //Search page router.
 router.get('/', (req, res) => res.render('index'));
 
-
+//Handling the requests from the front end.
 router.post('/', async function(req, res){
     //Deconstructing the request into the action and data.
     var data = req.body.msg.data;
@@ -26,4 +26,5 @@ router.post('/', async function(req, res){
     }
 });
 
+//Exporting the index router.
 module.exports = router;

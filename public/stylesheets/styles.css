@@ -93,7 +93,6 @@ input[type='submit']:hover {
 
 .search-results {
   margin: 6rem auto 20.2rem;
-  text-align: center;
   list-style: none;
   font-size: 1.5rem;
   font-weight: 500;
@@ -106,6 +105,7 @@ input[type='submit']:hover {
 }
 
 .search-results p {
+  text-align: left;
   margin-bottom: 0.5rem;
 }
 
