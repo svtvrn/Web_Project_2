@@ -21,7 +21,7 @@ function fetchBooks(){
         })
         .then(res => res.ok ? res.json() : console.log("Request Failed"))
         .then(data => {
-            if(!data || typeof data.work === 'undefined'){
+            if(!data || data.work === undefined){
                 searchResultsDOM.innerHTML = `Couldn't find any results for: ${searchInput.value}.`;
             }else{
                 if(data.work.length){
