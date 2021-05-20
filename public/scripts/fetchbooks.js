@@ -43,52 +43,55 @@ function resultTemplate(data){
             <p>Author: ${data.authorweb}</p>
             <p>ID: ${data.workid}</p>
             <span class="fav-btngroup">
-                <input id="add-fave" class="manage-book" type="submit" value="fave" onclick="manageBook('${data.workid}')"></input>
+                <input id="add-fave" class="manage-book" type="submit" value="fave" onclick="addBook('${data.workid}')"></input>
+                <input id="remove-fave" class="manage-book" type="submit" value="remove" onclick="removeBook('${data.workid}')"></input>
             </span>
-            <p id="response-msg"></>
+            <p id="response-msg"></p>
         </li>`
     );
 }
 
-function manageBook(wid){
+function addBook(wid){
+    document.querySelector(`#wid-${wid} #add-fave`).style.display = 'none';
+    document.querySelector(`#wid-${wid} #remove-fave`).style.display = 'initial';
+    let resMsg = document.querySelector(`#wid-${wid} #response-msg`);
 
-    let manageBtn = document.querySelector(`#wid-${wid} .manage-book`);
+    fetch('http://localhost:3000/',{
+        method: 'POST',
+        headers:{
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            msg:{ action: 'add', data: bookData.get(wid)}
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if(data.msg === "F0"){
+            resMsg.innerHTML = "You've already saved this book! You can remove it if you wish to.";
+        }
+    });
+}
 
-    if (manageBtn.value === 'fave'){
-        manageBtn.setAttribute('value','remove');
-        manageBtn.id = 'remove-fave';
-        fetch('http://localhost:3000/',{
-            method: 'POST',
-            headers:{
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                msg:{ action: 'add', data: bookData.get(wid)}
-            })
+function removeBook(wid){
+    document.querySelector(`#wid-${wid} #remove-fave`).style.display = 'none';
+    document.querySelector(`#wid-${wid} #add-fave`).style.display = 'initial';
+    let resMsg = document.querySelector(`#wid-${wid} #response-msg`);
+        resMsg.innerHTML = "";
+
+    fetch('http://localhost:3000/',{
+        method: 'POST',
+        headers:{
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            msg:{ action: 'remove', data: bookData.get(wid)}
         })
-        .then(res => res.json())
-        .then(data => {
-            if(data.msg === "F0"){
-                document.querySelector(`#wid-${wid} #response-msg`).innerHTML = "You've already saved this book! You can remove it if you wish to.";
-            }
-        });
-    }else if (manageBtn.value === 'remove'){
-        manageBtn.setAttribute('value','fave');
-        manageBtn.id = 'add-fave';
-        fetch('http://localhost:3000/', {
-            method: 'POST',
-            headers:{
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                msg:{ action: 'remove', data: bookData.get(wid)}
-            })
-        })
-        .then(res => res.json())
-        .then(data => {
-            if(data.msg === "F1"){
-                document.querySelector(`#wid-${wid} #response-msg`).innerHTML = "We couldn't remove this book..";
-            }
-        });
-    }
+    })
+    .then(res => res.json())
+    .then(data => {
+        if(data.msg === "F1"){
+            resMsg.innerHTML = "A problem occured, the book couldn't be removed..";
+        }
+    });
 }

@@ -1,7 +1,7 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const path = require('path');
-const booksearch = require('./routes/booksearch');
+const booksearch = require('./routes/index');
 
 const app = express();
 

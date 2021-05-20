@@ -131,10 +131,12 @@ input[type='submit']:hover {
 
 #remove-fave {
   background-color: var(--clr--footer);
+  display: none;
 }
 
 #response-msg {
   margin: 1rem auto;
+  transition: 0.2s ease 0.1s;
 }
 
 .bookworm-footer {
