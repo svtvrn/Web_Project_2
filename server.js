@@ -2,8 +2,6 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const path = require('path');
 const booksearch = require('./routes/booksearch');
-//const MongoClient = require('mongodb').MongoClient;
-
 
 const app = express();
 
@@ -18,6 +16,7 @@ app.use('/static', express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
+//Search page router.
 app.use('/', booksearch);
 
 //Server listening port.
