@@ -1,7 +1,8 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const path = require('path');
-const booksearch = require('./routes/index');
+const index = require('./routes/index');
+const favorites = require('./routes/favorites');
 
 const app = express();
 
@@ -17,7 +18,10 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
 //Search page router.
-app.use('/', booksearch);
+app.use('/', index);
+//Favorites page router.
+app.use('/', favorites);
+
 
 //Server listening port.
 const PORT = process.env.PORT || 3000
