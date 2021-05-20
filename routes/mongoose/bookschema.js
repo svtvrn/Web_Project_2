@@ -21,7 +21,8 @@ const BookSchema = new Schema({
   titleSubtitleAuth: String,
   titleshort: String,
   titleweb: String,
-  workid: {type: Number, unique: true}
+  workid: {type: Number, unique: true},
+  userReview: String
 });
 
 //Creating our DB model through Mongoose.

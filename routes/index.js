@@ -12,6 +12,7 @@ router.post('/', async function(req, res){
     var action = req.body.msg.action;
     //We delete any unwanted fields.
     delete data.titles;
+    data.userReview = "";
     //Checking which action was triggered.
     if(action === 'add'){
       var newBook = new Book(data);
