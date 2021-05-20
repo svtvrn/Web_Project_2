@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const mongoose = require('mongoose');
+const Book = require('./mongoose/bookschema');
 
 router.get('/favorites', (req, res) => res.render('favorites'));
 
