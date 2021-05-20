@@ -43,8 +43,8 @@ function resultTemplate(data){
             <p>Author: ${data.authorweb}</p>
             <p>ID: ${data.workid}</p>
             <span class="fav-btngroup">
-                <input id="add-fave" class="manage-book" type="submit" value="fave" onclick="addBook('${data.workid}')"></input>
-                <input id="remove-fave" class="manage-book" type="submit" value="remove" onclick="removeBook('${data.workid}')"></input>
+                <input id="add-fave" type="submit" value="fave" onclick="addBook('${data.workid}')"></input>
+                <input id="remove-fave" type="submit" value="remove" onclick="removeBook('${data.workid}')"></input>
             </span>
             <p id="response-msg"></p>
         </li>`
