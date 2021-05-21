@@ -104,6 +104,11 @@ input[type='submit']:hover {
   border-bottom: 0.1rem solid var(--clr--footer);
 }
 
+.search-results > li:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease 0.1s;
+}
+
 .search-results p {
   text-align: left;
   margin-bottom: 0.5rem;
