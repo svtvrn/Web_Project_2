@@ -22,7 +22,7 @@ const BookSchema = new Schema({
   titleshort: String,
   titleweb: String,
   workid: {type: Number, unique: true},
-  userReview: String
+  comment: String
 });
 
 //Creating our DB model through Mongoose.

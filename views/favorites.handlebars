@@ -1,11 +1,22 @@
 <main class="bookworm-main">
     <p>Check out your saved books!</p>
     <span class="search-bar">
-        <input class="filter-bar" type="text" placeholder="Enter a title, an author or a work id">
+        <input class="filter-bar" type="text" placeholder="Filter by typing an author or work">
     </span>
     <ul class="search-results">
         {{#each books}}
-        <li>{{this}}</li>
+        <li id="wid-{{workid}}" class="saved-book">
+            <span id="work-inf">
+                <p>Title: {{titleweb}}</p>
+                <p>Author: {{authorweb}}</p>
+                <p>ID: {{workid}}</p>
+                <p>Comment: {{comment}}</p>
+            </span>
+            <span class="edit-btngroup fav-btngroup">
+                <input id="edit-fave" type="submit" value="edit"></input>
+                <input id="visible-remove" type="submit" value="remove"></input>
+            </span>
+        </li>
         {{/each}}
     </ul>
 </main>
