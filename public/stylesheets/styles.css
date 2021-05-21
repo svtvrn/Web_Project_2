@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Rubik:wght@300;400&display=swap');
 
 :root {
-  --clr--header: #39cc6e;
+  --clr--primary: #39cc6e;
+  --clr--secondary: #373737;
   --clr--background: #f9f9f9;
-  --clr--footer: #373737;
   --clr--text: #fff;
+  --clr-accent: rgb(247, 59, 168);
 }
 
 * {
@@ -23,7 +24,7 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: var(--clr--header);
+  background-color: var(--clr--primary);
   height: 6rem;
 }
 
@@ -46,7 +47,7 @@ body {
 }
 
 .bookworm-main > p {
-  color: rgb(37, 37, 37);
+  color: var(--clr--secondary);
   font-size: 2rem;
   margin: 8rem auto 4rem;
   font-weight: 600;
@@ -84,7 +85,7 @@ body {
   height: 3rem;
   font-size: 1.3rem;
   font-weight: 700;
-  background-color: var(--clr--header);
+  background-color: var(--clr--primary);
   color: var(--clr--text);
   border-radius: 0 1vh 1vh 0;
   border: none;
@@ -106,7 +107,7 @@ input[type='submit']:hover {
 
 .search-results > li {
   padding: 1rem 0;
-  border-bottom: 0.1rem solid var(--clr--footer);
+  border-bottom: 0.1rem solid var(--clr--secondary);
 }
 
 .search-results > li:hover {
@@ -149,21 +150,21 @@ input[type='submit']:hover {
 }
 
 #add-fave {
-  background-color: var(--clr--header);
+  background-color: var(--clr--primary);
 }
 
 #remove-fave {
-  background-color: var(--clr--footer);
+  background-color: var(--clr--secondary);
   display: none;
 }
 
 #visible-remove {
-  background-color: var(--clr--footer);
+  background-color: var(--clr--secondary);
   margin-bottom: 1rem;
 }
 
 #edit-fave {
-  background-color: rgb(247, 59, 168);
+  background-color: var(--clr-accent);
   margin: 1rem 0;
 }
 
@@ -176,7 +177,7 @@ input[type='submit']:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--clr--footer);
+  background-color: var(--clr--secondary);
   height: 9rem;
 }
 
