@@ -3,7 +3,7 @@ const router = express.Router();
 const Book = require('./mongoose/bookschema');
 
 //Search page router.
-router.get('/', (req, res) => res.render('index'));
+router.get('/', (req, res) => res.render('index',{title: 'Bookworms! Find your next read!'}));
 
 //Handling the requests from the front end.
 router.post('/', async function(req, res){
