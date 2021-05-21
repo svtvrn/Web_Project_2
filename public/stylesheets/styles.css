@@ -41,8 +41,7 @@ body {
 }
 
 .bookworm-main {
-  display: flex;
-  flex-direction: column;
+  display: block;
   margin: 0 auto;
 }
 
@@ -51,6 +50,7 @@ body {
   font-size: 2rem;
   margin: 8rem auto 4rem;
   font-weight: 600;
+  text-align: center;
 }
 
 .search-bar {
@@ -97,7 +97,7 @@ input[type='submit']:hover {
 }
 
 .search-results {
-  margin: 6rem auto 20.2rem;
+  margin: 6rem auto 21rem;
   list-style: none;
   font-size: 1.5rem;
   font-weight: 500;
@@ -119,6 +119,12 @@ input[type='submit']:hover {
   margin-bottom: 0.5rem;
 }
 
+.saved-book {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .fav-btngroup {
   display: flex;
   justify-content: space-evenly;
@@ -135,6 +141,12 @@ input[type='submit']:hover {
   font-weight: 700;
 }
 
+.edit-btngroup {
+  width: min-content !important;
+  display: block !important;
+  width: fit-content;
+}
+
 #add-fave {
   background-color: var(--clr--header);
 }
@@ -142,6 +154,14 @@ input[type='submit']:hover {
 #remove-fave {
   background-color: var(--clr--footer);
   display: none;
+}
+
+#visible-remove {
+  background-color: var(--clr--footer);
+}
+
+#edit-fave {
+  background-color: rgb(247, 59, 168);
 }
 
 #response-msg {
