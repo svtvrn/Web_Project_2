@@ -97,7 +97,7 @@ input[type='submit']:hover {
 }
 
 .search-results {
-  margin: 6rem auto 21rem;
+  margin: 6rem auto 26.6rem;
   list-style: none;
   font-size: 1.5rem;
   font-weight: 500;
@@ -145,6 +145,7 @@ input[type='submit']:hover {
   width: min-content !important;
   display: block !important;
   width: fit-content;
+  margin: auto 0;
 }
 
 #add-fave {
@@ -158,10 +159,12 @@ input[type='submit']:hover {
 
 #visible-remove {
   background-color: var(--clr--footer);
+  margin-bottom: 1rem;
 }
 
 #edit-fave {
   background-color: rgb(247, 59, 168);
+  margin: 1rem 0;
 }
 
 #response-msg {
