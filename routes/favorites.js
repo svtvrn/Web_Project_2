@@ -15,7 +15,8 @@ router.get('/favorites', (req, res) => {
         });
         if(!error) res.render('favorites',{ 
             title: 'Bookworms! Fave Books', 
-            books
+            books,
+            script: 'managefaves'
         });
     });
 }); 
