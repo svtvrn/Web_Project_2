@@ -56,7 +56,7 @@ body {
 .search-bar {
   display: flex;
   margin: 0 auto;
-  width: 50em;
+  width: 50rem;
   height: 3rem;
 }
 
@@ -68,6 +68,11 @@ body {
   border-radius: 1vh 0 0 1vh;
   border: none;
   box-shadow: 10px 10px 10px 0 rgba(0, 0, 0, 0.411);
+}
+
+.search-bar .filter-bar {
+  width: 100% !important;
+  border-radius: 1vh !important;
 }
 
 .search-bar > input:focus {
