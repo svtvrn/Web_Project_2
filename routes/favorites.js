@@ -25,7 +25,7 @@ router.post('/favorites', async function(req, res) {
 
     var data = req.body.msg.data;
     var action = req.body.msg.action;
-
+    console.log(data);
     if(action === 'remove'){
         await Book.deleteOne({workid: parseInt(data)}, err => {
             err ? res.send({msg: 'F1'}) : res.send({msg: 'S1'}) 
@@ -39,7 +39,6 @@ router.post('/favorites', async function(req, res) {
         .catch(err => {
             console.log(err);
         });
-        console.log(filterResults);
         return res.end();
     }
 });

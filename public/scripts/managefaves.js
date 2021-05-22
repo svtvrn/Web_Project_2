@@ -35,7 +35,7 @@ function filterList(filter){
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            msg:{ action: 'filter', filter: filter }
+            msg:{ action: 'filter', data: filter }
         })
     })
     .then(res => res.json())
@@ -43,5 +43,6 @@ function filterList(filter){
         if(data.msg === "S2"){
             return document.querySelector(`#wid-${wid}`).remove();
         }
-    });
+    })
+    .catch(err => console.log("Oops."));
 }
