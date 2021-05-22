@@ -23,6 +23,8 @@ function removeFromColl(wid){
     .then(data => {
         if(data.msg === "S1"){
             return document.querySelector(`#wid-${wid}`).remove();
+        }else{
+            console.log("An error occured while removing the book.");
         }
     });
 }
