@@ -1,12 +1,16 @@
 const filterInput = document.querySelector('.filter-bar');
+var timeout;
 
-filterInput.addEventListener('input',()=>{
-    setTimeout(()=>{
-        if(filterInput.value){
-            return filterList(filterInput.value) ;
-        }
-    },2000);
+filterInput.addEventListener('keyup',(e)=>{
+    var filter = e.target;
+    if(timeout !== null){
+        clearTimeout(timeout);
+    }
+    timeout = setTimeout(()=>{
+        filterList(filter.value);
+    }, 1000);
 });
+    
 
 function removeFromColl(wid){
     fetch('http://localhost:3000/favorites/',{

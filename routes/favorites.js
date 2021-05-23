@@ -32,13 +32,13 @@ router.post('/favorites', async function(req, res) {
           });
     }else if (action === 'filter'){
         var filterResults = await Book.find({
-            authorweb: data,
-            titleweb: data,
-            workid: data
+            authorweb: `/${data}/`,
+            titleweb: `/${data}/`
         })
         .catch(err => {
             console.log(err);
         });
+        console.log(filterResults);
         return res.end();
     }
 });
