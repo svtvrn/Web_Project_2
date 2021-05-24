@@ -105,14 +105,23 @@ input[type='submit']:hover {
   width: 35rem;
 }
 
+.li-cont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .search-results > li {
   padding: 1rem 0;
-  border-bottom: 0.1rem solid var(--clr--secondary);
+  border-left: 0.3rem solid var(--clr--secondary);
+  margin: 2rem 0;
+  padding-left: 1rem;
 }
 
 .search-results > li:hover {
   transform: scale(1.05);
   transition: transform 0.2s ease 0.1s;
+  border-left: solid var(--clr--primary);
 }
 
 .search-results p {

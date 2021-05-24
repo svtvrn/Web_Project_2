@@ -39,14 +39,16 @@ function resultTemplate(data){
     bookData.set(data.workid, data);
     return (
         `<li id="wid-${data.workid}">
-            <span id="work-inf">
-                <p>Title: ${data.titleweb}</p>
-                <p>Author: ${data.authorweb}</p>
-                <p>ID: ${data.workid}</p>
-            </span>
-            <span class="fav-btngroup">
-                <input id="add-fave" type="submit" value="fave" onclick="addBook('${data.workid}')"></input>
-                <input id="remove-fave" type="submit" value="remove" onclick="removeBook('${data.workid}')"></input>
+            <span class="li-cont">
+                <span id="work-inf">
+                    <p>Title: ${data.titleweb}</p>
+                    <p>Author: ${data.authorweb}</p>
+                    <p>ID: ${data.workid}</p>
+                </span>
+                <span class="fav-btngroup">
+                    <input id="add-fave" type="submit" value="fave" onclick="addBook('${data.workid}')"></input>
+                    <input id="remove-fave" type="submit" value="remove" onclick="removeBook('${data.workid}')"></input>
+                </span>
             </span>
             <p id="response-msg"></p>
         </li>`
