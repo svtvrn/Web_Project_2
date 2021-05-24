@@ -25,22 +25,33 @@ router.post('/favorites', async function(req, res) {
 
     var data = req.body.msg.data;
     var action = req.body.msg.action;
-    console.log(data);
+
     if(action === 'remove'){
         await Book.deleteOne({workid: parseInt(data)}, err => {
             err ? res.send({msg: 'F1'}) : res.send({msg: 'S1'}) 
           });
     }else if (action === 'filter'){
-        var filterResults = await Book.find({
-            authorweb: `/${data}/`,
-            titleweb: `/${data}/`
-        })
-        .catch(err => {
-            console.log(err);
+        await Book.find(
+        { $and: [
+            {authorweb: { $not: {$regex: `${data}`, $options: 'i'}}},
+            {titleweb: { $not: {$regex: `${data}`, $options: 'i'}}},
+        ]},{workid: 1, _id: 0}, (err, books) =>{
+            if(err){
+                res.send({msg: 'F2'});
+            }else{
+                res.send({msg: books});
+            }
         });
-        console.log(filterResults);
-        return res.end();
+        res.end();
     }
 });
+
+function returnFiltered(books){
+    var ids = [];
+    for (let book of books){
+        ids.push(book.workid);
+    }
+    return ids;
+}
 
 module.exports = router;

@@ -126,6 +126,10 @@ input[type='submit']:hover {
   align-items: center;
 }
 
+.hidden-book {
+  display: none;
+}
+
 .fav-btngroup {
   display: flex;
   justify-content: space-evenly;

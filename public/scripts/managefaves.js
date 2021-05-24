@@ -1,6 +1,7 @@
 const filterInput = document.querySelector('.filter-bar');
 var timeout;
-
+var booklist = document.querySelector('.search-results').querySelectorAll('li');
+;
 filterInput.addEventListener('keyup',(e)=>{
     var filter = e.target;
     if(timeout !== null){
@@ -33,6 +34,11 @@ function removeFromColl(wid){
 }
 
 function filterList(filter){
+
+    for (let book of booklist){
+        book.className = 'saved-book';
+    }
+    
     fetch('http://localhost:3000/favorites/',{
         method: 'POST',
         headers:{
@@ -44,8 +50,12 @@ function filterList(filter){
     })
     .then(res => res.json())
     .then(data => {
-        if(data.msg === "S2"){
-            return document.querySelector(`#wid-${wid}`).remove();
+        if(data.msg === "F2"){
+            return console.log("An error occured while filtering.");
+        }else{
+            for (let book of data.msg){
+                document.querySelector(`#wid-${book.workid}`).className = 'hidden-book';
+            }
         }
     })
     .catch(err => console.log("Oops."));
