@@ -46,12 +46,4 @@ router.post('/favorites', async function(req, res) {
     }
 });
 
-function returnFiltered(books){
-    var ids = [];
-    for (let book of books){
-        ids.push(book.workid);
-    }
-    return ids;
-}
-
 module.exports = router;
