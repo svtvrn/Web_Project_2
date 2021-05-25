@@ -5,7 +5,7 @@
     </span>
     <ul class="search-results">
         {{#each books}}
-        <li id="wid-{{workid}}" class="saved-book">
+        <li id="wid-{{workid}}" class="li-cont">
             <span id="work-inf">
                 <p>Title: {{titleweb}}</p>
                 <p>Author: {{authorweb}}</p>
@@ -13,7 +13,7 @@
                 <p>Comment: {{comment}}</p>
             </span>
             <span class="edit-btngroup fav-btngroup">
-                <input id="edit-fave" type="submit" value="edit"></input>
+                <input id="edit-fave" type="submit" value="edit" onclick="editBook({{workid}})"></input>
                 <input id="visible-remove" type="submit" value="remove" onclick="removeFromColl({{workid}})"></input>
             </span>
         </li>
