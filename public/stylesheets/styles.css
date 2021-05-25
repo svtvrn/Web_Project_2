@@ -97,6 +97,13 @@ input[type='submit']:hover {
   filter: brightness(1.06);
 }
 
+.upd-form {
+  display: block;
+  margin: 6rem auto 23.2rem;
+  font-size: 1.2rem;
+  width: min-content;
+}
+
 .search-results {
   margin: 6rem auto 28.2rem;
   list-style: none;
