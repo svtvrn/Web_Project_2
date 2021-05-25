@@ -4,11 +4,10 @@ const Book = require('./mongoose/bookschema');
 
 //Edit page router.
 router.get('/edit/:id', (req, res) =>{
-    Book.find({ workid: req.params.id }, (err, books) =>{
+    Book.findOne({ workid: req.params.id }, (err, book) =>{
         if(err){
             res.send("Book not found.");
         }else{
-            book = books[0];
             res.render('edit',{
                 title: 'Update Book Info',
                 script: 'updatebook',
@@ -19,6 +18,26 @@ router.get('/edit/:id', (req, res) =>{
             });
         }
     })
+});
+
+router.post('/edit/:id', (req, res) =>{
+
+    var data = req.body.msg.book;
+    var action = req.body.msg.action;
+
+    if(action === 'update'){
+        console.log(data);
+        Book.updateOne( {workid: data.workid}, {
+            $set: {titleweb: data.titleweb},
+            $set: {authorweb: data.authorweb}, 
+            $set: {comment: data.comment} 
+        }, err => {
+            err ? res.send('F3') : res.send('S3');
+        });
+    }else{
+        res.end();
+    }
+
 });
 
 module.exports = router;
