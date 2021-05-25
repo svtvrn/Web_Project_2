@@ -20,17 +20,19 @@ router.get('/edit/:id', (req, res) =>{
     })
 });
 
-router.post('/edit/:id', (req, res) =>{
+router.post('/edit/:id', async (req, res) =>{
 
     var data = req.body.msg.book;
     var action = req.body.msg.action;
 
     if(action === 'update'){
-        console.log(data);
+
         Book.updateOne( {workid: data.workid}, {
-            $set: {titleweb: data.titleweb},
-            $set: {authorweb: data.authorweb}, 
-            $set: {comment: data.comment} 
+            $set: {
+                titleweb: data.titleweb,
+                authorweb: data.authorweb,
+                comment: data.comment
+            } 
         }, err => {
             err ? res.send('F3') : res.send('S3');
         });
