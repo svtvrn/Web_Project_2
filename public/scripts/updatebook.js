@@ -25,10 +25,8 @@ function updateBook(){
     })
     .then(res => res.json())
     .then(data => {
-        if(data.msg === "S3"){
-            return res.end();
-        }else{
-            return console.log("Edit failed.")
+        if(data.msg !== "S3"){
+            return console.log("Update failed.")
         }
     })
     .catch( err => console.log("Oops. Something went wrong!"));

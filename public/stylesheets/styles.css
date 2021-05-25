@@ -76,7 +76,7 @@ body {
   border-radius: 1vh !important;
 }
 
-.search-bar > input:focus {
+input[type='text']:focus {
   outline: none;
 }
 
@@ -92,16 +92,41 @@ body {
   box-shadow: 10px 10px 10px 0 rgba(0, 0, 0, 0.411);
 }
 
-input[type='submit']:hover {
+input[type='submit']:hover,
+button:hover {
   cursor: pointer;
   filter: brightness(1.06);
 }
 
 .upd-form {
   display: block;
-  margin: 6rem auto 23.2rem;
-  font-size: 1.2rem;
+  margin: 6rem auto 14.2rem;
+  font-size: 1.8rem;
   width: min-content;
+  text-align: left;
+}
+
+.upd-form > input[type='text'] {
+  width: 35rem;
+  height: 3rem;
+  font-size: 1.1rem;
+  padding: 1rem 0 1rem 2rem;
+  margin: 1rem auto 3rem;
+  border-radius: 1vh;
+  border: none;
+  box-shadow: 10px 10px 10px 0 rgba(0, 0, 0, 0.411);
+}
+
+#wid {
+  background-color: #dbdbdb;
+}
+
+#save-btn {
+  float: left;
+  width: 11.5rem !important;
+  height: 2.7rem !important;
+  margin-top: 2rem;
+  background-color: var(--clr-accent);
 }
 
 .search-results {
@@ -146,7 +171,7 @@ input[type='submit']:hover {
   padding-left: 2rem;
 }
 
-.fav-btngroup > input {
+input[type='submit'] {
   width: 7rem;
   height: 2.5rem;
   font-size: 1.4rem;
@@ -213,6 +238,10 @@ input[type='submit']:hover {
     width: 85%;
     padding: 1rem 0 1rem 1rem;
   }
+
+  .upd-form > input[type='text'] {
+    width: 25rem;
+  }
 }
 
 @media only screen and (max-width: 992px) and (min-width: 551px) {
@@ -227,5 +256,9 @@ input[type='submit']:hover {
   .search-bar > input[type='text'] {
     width: 85%;
     padding: 1rem 0 1rem 1rem;
+  }
+
+  .upd-form > input[type='text'] {
+    width: 30rem;
   }
 }

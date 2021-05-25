@@ -1,10 +1,14 @@
 <main class="bookworm-main">
     <p>Update the book info.</p>
     <form class="upd-form">
+        <label for="title">Title</label>
         <input id="title" type="text" placeholder="Enter a work title" value="{{titleweb}}"></input>
+        <label for="author">Author</label>
         <input id="author" type="text" placeholder="Enter an author's name" value="{{authorweb}}"></input>
+        <label for="wid">ID</label>
         <input id="wid" type="text" placeholder="" value="{{workid}}" readonly></input>
+        <label for="comm">Comment</label>
         <input id="comm" type="text" placeholder="Enter a comment" value="{{comment}}"></input>
-        <button id="save-btn" value="save">save</button>
+        <input type="submit" id="save-btn" value="save changes"></input>
     </form>
 </main>
