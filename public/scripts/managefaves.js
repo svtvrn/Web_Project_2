@@ -41,7 +41,7 @@ function removeFromColl(wid){
 function filterList(filter){
 
     for (let book of booklist){
-        book.className = 'saved-book';
+        book.className = 'li-cont';
     }
     
     fetch('http://localhost:3000/favorites/',{

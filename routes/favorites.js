@@ -39,11 +39,8 @@ router.post('/favorites', async function(req, res) {
             {authorweb: { $not: {$regex: `${data}`, $options: 'i'}}},
             {titleweb: { $not: {$regex: `${data}`, $options: 'i'}}},
         ]},{workid: 1, _id: 0}, (err, books) =>{
-            if(err){
-                return res.send({msg: 'F2'});
-            }else{
-                return res.send({msg: books});
-            }
+            
+            err ? res.send({msg: 'F2'}) : res.send({msg: books})
         });
     }
 });
