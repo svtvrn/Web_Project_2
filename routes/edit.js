@@ -20,7 +20,7 @@ router.get('/edit/:id', (req, res) =>{
     })
 });
 
-router.post('/edit/:id', async (req, res) =>{
+router.put('/edit/:id', async (req, res) =>{
 
     var data = req.body.msg.book;
     var action = req.body.msg.action;

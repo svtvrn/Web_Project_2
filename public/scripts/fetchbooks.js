@@ -60,7 +60,7 @@ function addBook(wid){
     document.querySelector(`#wid-${wid} #remove-fave`).style.display = 'initial';
     let resMsg = document.querySelector(`#wid-${wid} #response-msg`);
 
-    fetch('http://localhost:3000/',{
+    fetch('/',{
         method: 'POST',
         headers:{
             'Content-Type': 'application/json'

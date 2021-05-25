@@ -7,9 +7,9 @@ const saveBtn = document.querySelector('#save-btn');
 saveBtn.addEventListener('click', updateBook);
 
 function updateBook(){
-    
-    fetch(`http://localhost:3000/favorites/edit/${wid.value}`,{
-        method: 'POST',
+
+    fetch(`/favorites/edit/${wid.value}`,{
+        method: 'PUT',
         headers:{
             'Content-Type': 'application/json'
         },
@@ -26,7 +26,7 @@ function updateBook(){
     .then(res => res.json())
     .then(data => {
         if(data.msg === "S3"){
-            return;
+            return res.end();
         }else{
             return console.log("Edit failed.")
         }

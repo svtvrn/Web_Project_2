@@ -44,7 +44,7 @@ function filterList(filter){
         book.className = 'li-cont';
     }
     
-    fetch('http://localhost:3000/favorites/',{
+    fetch('/favorites/',{
         method: 'POST',
         headers:{
             'Content-Type': 'application/json'
