@@ -4,6 +4,7 @@ const path = require('path');
 const index = require('./routes/index');
 const favorites = require('./routes/favorites');
 
+
 const app = express();
 
 //Connecting the Handlebars template engine, setting the default layout.
@@ -11,7 +12,7 @@ app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
 //Content middleware (images, scripts, stylesheets).
-app.use('/static', express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 //Express middleware to handle the URIs and the JSON files.
 app.use(express.urlencoded({extended: false}));

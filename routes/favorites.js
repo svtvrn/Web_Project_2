@@ -1,7 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const Book = require('./mongoose/bookschema');
+const edit = require('./edit');
 
+
+router.use('/favorites',edit);
 
 router.get('/favorites', (req, res) => { 
     Book.find({}, (error, books)=>{
@@ -44,5 +47,6 @@ router.post('/favorites', async function(req, res) {
         });
     }
 });
+
 
 module.exports = router;

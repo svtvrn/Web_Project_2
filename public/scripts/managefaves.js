@@ -1,7 +1,8 @@
 const filterInput = document.querySelector('.filter-bar');
+const booklist = document.querySelector('.search-results').querySelectorAll('li');
+
 var timeout;
-var booklist = document.querySelector('.search-results').querySelectorAll('li');
-;
+
 filterInput.addEventListener('keyup',(e)=>{
     var filter = e.target;
     if(timeout !== null){
@@ -11,7 +12,11 @@ filterInput.addEventListener('keyup',(e)=>{
         filterList(filter.value);
     }, 1000);
 });
-    
+
+function editBook(wid){
+    window.location = `/favorites/edit/${wid}`;
+}
+
 
 function removeFromColl(wid){
     fetch('http://localhost:3000/favorites/',{
