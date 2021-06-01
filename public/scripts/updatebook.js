@@ -1,3 +1,4 @@
+//Work fields selectors.
 const title = document.querySelector('#title');
 const author = document.querySelector('#author');
 const wid = document.querySelector('#wid');

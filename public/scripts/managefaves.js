@@ -4,7 +4,7 @@ const booklist = document.querySelector('.search-results').querySelectorAll('li'
 var timeout;
 
 filterInput.addEventListener('keyup',(e)=>{
-    var filter = e.target;
+    let filter = e.target;
     if(timeout !== null){
         clearTimeout(timeout);
     }

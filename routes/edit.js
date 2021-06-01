@@ -28,7 +28,7 @@ router.put('/edit/:id', async (req, res) =>{
 
     if(action === 'update'){
 
-        Book.updateOne( {workid: data.workid}, {
+        await Book.updateOne( {workid: data.workid}, {
             $set: {
                 titleweb: data.titleweb,
                 authorweb: data.authorweb,
