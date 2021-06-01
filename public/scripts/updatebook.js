@@ -5,6 +5,7 @@ const wid = document.querySelector('#wid');
 const comment = document.querySelector('#comm');
 const saveBtn = document.querySelector('#save-btn');
 
+//Save changes button.
 saveBtn.addEventListener('click', updateBook);
 
 function updateBook(){
