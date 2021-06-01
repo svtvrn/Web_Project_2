@@ -26,6 +26,7 @@ body {
   align-items: center;
   background-color: var(--clr--primary);
   height: 6rem;
+  box-shadow: 0 2px 2px -2px rgb(0, 0, 0);
 }
 
 #fav-list-link {

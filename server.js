@@ -4,7 +4,7 @@ const path = require('path');
 const index = require('./routes/index');
 const favorites = require('./routes/favorites');
 
-
+//Initializing our express app.
 const app = express();
 
 //Connecting the Handlebars template engine, setting the default layout.
@@ -24,9 +24,9 @@ app.use('/', index);
 app.use('/', favorites);
 
 
-//Server listening port.
+//Server  default listening port.
 const PORT = process.env.PORT || 3000
 //Initiating the app.
 app.listen(PORT, () =>{
-    console.log(`Listening on da port ${PORT}...`);
+    console.log(`Listening on port ${PORT}...`);
 });
