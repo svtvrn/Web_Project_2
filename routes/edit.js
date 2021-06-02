@@ -23,8 +23,8 @@ router.get('/edit/:id', (req, res) =>{
 //Handling an edit action, updating an existing record.
 router.put('/edit/:id', async (req, res) =>{
 
-    var data = req.body.msg.book;
-    var action = req.body.msg.action;
+    let data = req.body.msg.book;
+    let action = req.body.msg.action;
 
     if(action === 'update'){
 

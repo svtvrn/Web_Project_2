@@ -27,8 +27,8 @@ router.get('/favorites', (req, res) => {
 
 router.post('/favorites', async function(req, res) {
 
-    var data = req.body.msg.data;
-    var action = req.body.msg.action;
+    let data = req.body.msg.data;
+    let action = req.body.msg.action;
     //Checking which action was triggered.
     if(action === 'remove'){
         await Book.deleteOne({workid: parseInt(data)}, err => {

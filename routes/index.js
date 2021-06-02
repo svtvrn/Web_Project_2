@@ -11,14 +11,14 @@ router.get('/', (req, res) => res.render('index',{
 //Handling the requests from the front end.
 router.post('/', async function(req, res){
     //Deconstructing the request into the action and data.
-    var data = req.body.msg.data;
-    var action = req.body.msg.action;
+    let data = req.body.msg.data;
+    let action = req.body.msg.action;
     //We delete any unwanted fields.
     delete data.titles;
     data.comment = "";
     //Checking which action was triggered.
     if(action === 'add'){
-      var newBook = new Book(data);
+      let newBook = new Book(data);
       await newBook.save( err => {
         err ? res.send({msg: 'F0'}) : res.send({msg: 'S1'})
       });
