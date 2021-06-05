@@ -95,7 +95,7 @@ function removeBook(wid){
     resMsg.innerHTML = "";
 
     fetch('http://localhost:3000/',{
-        method: 'POST',
+        method: 'DELETE',
         headers:{
             'Content-Type': 'application/json'
         },

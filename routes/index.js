@@ -20,14 +20,25 @@ router.post('/', async function(req, res){
     if(action === 'add'){
       let newBook = new Book(data);
       await newBook.save( err => {
-        err ? res.send({msg: 'F0'}) : res.send({msg: 'S1'})
-      });
-    }else if(action === 'remove'){
-      await Book.deleteOne({workid: parseInt(data.workid)}, err => {
-        err ? res.send({msg: 'F1'}) : res.send({msg: 'S1'}) 
+        err ? res.send({msg: 'F0'}) : res.send({msg: 'S0'})
       });
     }
 });
+
+router.delete('/', async function(req, res){
+  //Deconstructing the request into the action and data.
+  let data = req.body.msg.data;
+  let action = req.body.msg.action;
+  //Checking which action was triggered.
+  if(action === 'remove'){
+    await Book.deleteOne({workid: parseInt(data.workid)}, err => {
+      err ? res.send({msg: 'F1'}) : res.send({msg: 'S1'}) 
+    });
+  }
+});
+
+
+
 
 //Exporting the index router.
 module.exports = router;

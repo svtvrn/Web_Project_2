@@ -24,7 +24,7 @@ function editBook(wid){
 function removeFromColl(wid){
 
     fetch('http://localhost:3000/favorites/',{
-        method: 'POST',
+        method: 'DELETE',
         headers:{
             'Content-Type': 'application/json'
         },

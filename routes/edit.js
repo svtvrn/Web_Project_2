@@ -27,7 +27,6 @@ router.put('/edit/:id', async (req, res) =>{
     let action = req.body.msg.action;
 
     if(action === 'update'){
-
         await Book.updateOne( {workid: data.workid}, {
             $set: {
                 titleweb: data.titleweb,
@@ -37,10 +36,7 @@ router.put('/edit/:id', async (req, res) =>{
         }, err => {
             err ? res.send('F3') : res.send('S3');
         });
-    }else{
-        res.end();
     }
-
 });
 
 module.exports = router;

@@ -30,11 +30,7 @@ router.post('/favorites', async function(req, res) {
     let data = req.body.msg.data;
     let action = req.body.msg.action;
     //Checking which action was triggered.
-    if(action === 'remove'){
-        await Book.deleteOne({workid: parseInt(data)}, err => {
-            err ? res.send({msg: 'F1'}) : res.send({msg: 'S1'}) 
-          });
-    }else if (action === 'filter'){
+    if (action === 'filter'){
         //Finding all books that don't match the filter and return their ids.
         await Book.find(
         { $and: [
@@ -42,6 +38,18 @@ router.post('/favorites', async function(req, res) {
             {titleweb: { $not: {$regex: `${data}`, $options: 'i'}}},
         ]},{workid: 1, _id: 0}, (err, books) =>{
             err ? res.send({msg: 'F2'}) : res.send({msg: books})
+        });
+    }
+});
+
+router.delete('/favorites', async function(req, res) {
+
+    let data = req.body.msg.data;
+    let action = req.body.msg.action;
+    //Checking which action was triggered.
+    if(action === 'remove'){
+        await Book.deleteOne({workid: parseInt(data)}, err => {
+            err ? res.send({msg: 'F1'}) : res.send({msg: 'S1'}) 
         });
     }
 });
